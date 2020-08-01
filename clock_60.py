@@ -6,7 +6,7 @@ import neopixel
 pixel_pin = board.D12
 num_pixels = 60
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=False)
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.3, auto_write=False)
 
 RED = (255, 0, 0)
 RED_2 = (64, 0, 0)

@@ -4,7 +4,7 @@ import board
 import neopixel
 
 pixel_pin = board.D12
-num_pixels = 24
+num_pixels = 60
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=False)
 
@@ -20,7 +20,6 @@ OFF = (0,0,0)
     
 #pixels[1] = (0,0,0)
 #pixels.show()
-'''
 while True:
         pixels.fill(OFF)
         pixels.show()
@@ -34,12 +33,11 @@ while True:
         secColor = (0,255,0)
         overlapColor = (255,0,255)
 
-        pixels[hourPixel] = hourColor
-        pixels[minutePixel] = minuteColor
-        pixels[secPixel] = secColor
+        pixels[-hourPixel] = hourColor
+        pixels[-minutePixel] = minuteColor
+        pixels[-secPixel] = secColor
         pixels.show()
         time.sleep(1)
-'''
 '''
         print(now.hour)
         #print((now.hour % num_pixels))
@@ -87,29 +85,3 @@ except KeyboardInterrupt:
             pixels.show()
             sys.exit()
 '''
-
-
-try:
-	while True:
-		for i in range(num_pixels):
-           		pixels[i] = RED
-           		pixels[i-1] = OFF
-           		pixels.show()
-           		time.sleep(0.1)
-		
-		pixels.fill(OFF)
-		pixels.show()
-
-		for i in range(num_pixels):
-           		pixels[-i] = RED
-           		pixels[-i+1] = OFF
-           		pixels.show()
-           		time.sleep(0.1)
-		
-		pixels.fill(OFF)
-		pixels.show()
-
-except KeyboardInterrupt:
-	pixels.fill(OFF)
-	pixels.show()
-	sys.exit()
